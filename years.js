@@ -106,6 +106,6 @@
       }
     }
 
-    if (!window.years_ready) startPlugin();
+    startPlugin();
 
 })();
