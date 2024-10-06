@@ -74,7 +74,6 @@
       return comp;
     }
 
-    function startPlugin() {
       var manifest = {
         type: 'video',
         version: '0.0.1',
@@ -82,7 +81,7 @@
         description: '',
         component: 'years'
       };
-      Lampa.Manifest.plugins = manifest;
+//      Lampa.Manifest.plugins = manifest;
       Lampa.Component.add('years', component$1);
       Lampa.Component.add('year', component);
 
@@ -104,8 +103,5 @@
           if (e.type == 'ready') add();
         });
       }
-    }
-
-    startPlugin();
 
 })();
