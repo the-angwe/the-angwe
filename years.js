@@ -39,6 +39,7 @@
         let query    = []
         let type = 'movie'
         query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + params.url)
+        query.push('sort_by=vote_average.desc&vote_count.gte=500')
         let q = 'discover/' + type + '?' + query.join('&')
 
 //      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
@@ -50,6 +51,7 @@
         card_type: true,
         page: 1
     }
+    Lampa.Controller.toggle('content')
 //        Lampa.Activity.push(activity)
     Lampa.Activity.replace(activity, true)
     }
