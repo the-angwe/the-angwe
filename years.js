@@ -20,6 +20,10 @@
 //        });
 //
 //        data.results[0].title = '2024'
+        data.results = []
+        data.collection = true;
+        data.total_pages = 1
+        data.total = 2024 - 2010
     for (let i = 2024; i > 2010; i--) {
     let element = {}
     element.id = `${i}`
@@ -29,10 +33,6 @@
     element.type = 'movie'
     element.hpu = `${i}`
 //    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
-        data.collection = true;
-        data.total_pages = 1
-        data.total = 2024 - 2010
-        data.results = []
         data.results.push(element)
     }
         oncomplite(data);
