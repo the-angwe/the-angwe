@@ -5,15 +5,29 @@
     var api_url = Lampa.Utils.protocol() + Lampa.Manifest.cub_domain + '/api/collections/';
 
     function main(params, oncomplite, onerror) {
-      network.silent(api_url + 'list?page=' + params.page, function (data) {
+        let query    = []
+        let data
+        let type = 'movie'
+        query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + a.title)
+        'discover/' + type + '?' + query.join('&')
+
+//      network.silent(api_url + 'list?page=' + params.page, function (data) {
+//        data.collection = true;
+//        data.total_pages = data.total_pages || 5;
+//        data.results.forEach(function (element) {
+//          element.poster_path = element.img;
+//          element.backdrop_path = element.img;
+//        });
+    let element
+    element.id = '2024'
+    element.original_title = '2024'
         data.collection = true;
-        data.total_pages = data.total_pages || 5;
-        data.results.forEach(function (element) {
-          element.poster_path = element.img;
-          element.backdrop_path = element.img;
-        });
+        data.total_pages = 1
+        data.results = []
+        data.results.push(element)
+
         oncomplite(data);
-      }, onerror);
+//      }, onerror);
     }
 
     function full(params, oncomplite, onerror) {
@@ -40,7 +54,7 @@
         Api.main(object, this.build.bind(this), this.empty.bind(this));
       };
 
-      comp.nextPageRequest = function (object, resolve, reject) {
+      comp.nextPageReuest = function (object, resolve, reject) {
         Api.main(object, resolve.bind(comp), reject.bind(comp));
       };
 
