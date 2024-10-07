@@ -20,20 +20,21 @@
 //        });
 //
 //        data.results[0].title = '2024'
+    for (let i = 2024; i > 2010; i--) {
     let element = {}
-    element.id = '2024'
-    element.original_title = '2024'
-    element.title = '2024'
+    element.id = `${i}`
+    element.original_title = `${i}`
+    element.title = `${i}`
     element.img = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
     element.type = 'movie'
-    element.hpu = '2024'
+    element.hpu = `${i}`
 //    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
         data.collection = true;
         data.total_pages = 1
-        data.total = 1
+//        data.total = 1
         data.results = []
         data.results.push(element)
-
+    }
         oncomplite(data);
 //      }, onerror);
     }
