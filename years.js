@@ -21,6 +21,7 @@
     let element
     element.id = '2024'
     element.original_title = '2024'
+    element.backdrop_path = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
         data.collection = true;
         data.total_pages = 1
         data.results = []
