@@ -50,7 +50,8 @@
         card_type: true,
         page: 1
     }
-        Lampa.Activity.push(activity)
+//        Lampa.Activity.push(activity)
+    Activity.replace(activity, true)
     }
 
     function clear() {
