@@ -31,7 +31,7 @@
 //    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
         data.collection = true;
         data.total_pages = 1
-//        data.total = 1
+        data.total = 2024 - 2010
         data.results = []
         data.results.push(element)
     }
