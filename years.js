@@ -5,11 +5,6 @@
     var api_url = Lampa.Utils.protocol() + Lampa.Manifest.cub_domain + '/api/collections/';
 
     function main(params, oncomplite, onerror) {
-        let query    = []
-        let data = {}
-        let type = 'movie'
-        query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + a.title)
-        'discover/' + type + '?' + query.join('&')
 
 //      network.silent(api_url + 'list?page=' + params.page, function (data) {
 //        data.collection = true;
@@ -20,6 +15,7 @@
 //        });
 //
 //        data.results[0].title = '2024'
+        let data = {}
         data.results = []
         data.collection = true;
         data.total_pages = 1
@@ -40,7 +36,13 @@
     }
 
     function full(params, oncomplite, onerror) {
-      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
+        let query    = []
+        let type = 'movie'
+        query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + params.url)
+        let q = 'discover/' + type + '?' + query.join('&')
+
+//      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
+      network.silent(q + '?page=' + params.page, function (data) {
         data.total_pages = data.total_pages || 15;
         oncomplite(data);
       }, onerror);
