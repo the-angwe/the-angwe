@@ -11,29 +11,31 @@
         query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + a.title)
         'discover/' + type + '?' + query.join('&')
 
-//      network.silent(api_url + 'list?page=' + params.page, function (data) {
-//        data.collection = true;
-//        data.total_pages = data.total_pages || 5;
-//        data.results.forEach(function (element) {
-//          element.poster_path = element.img;
-//          element.backdrop_path = element.img;
-//        });
-    let element
-    element.id = '2024'
-    element.original_title = '2024'
-    element.title = '2024'
-    element.img = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
-    element.type = 'movie'
-    element.hpu = '2024'
-//    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
+      network.silent(api_url + 'list?page=' + params.page, function (data) {
         data.collection = true;
-        data.total_pages = 1
-        data.total = 1
-        data.results = []
-        data.results.push(element)
+        data.total_pages = data.total_pages || 5;
+        data.results.forEach(function (element) {
+          element.poster_path = element.img;
+          element.backdrop_path = element.img;
+        });
+
+        data.results[0].title = '2024'
+//    let element
+//    element.id = '2024'
+//    element.original_title = '2024'
+//    element.title = '2024'
+//    element.img = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
+//    element.type = 'movie'
+//    element.hpu = '2024'
+////    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
+//        data.collection = true;
+//        data.total_pages = 1
+//        data.total = 1
+//        data.results = []
+//        data.results.push(element)
 
         oncomplite(data);
-//      }, onerror);
+      }, onerror);
     }
 
     function full(params, oncomplite, onerror) {
