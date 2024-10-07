@@ -22,8 +22,10 @@
     element.id = '2024'
     element.original_title = '2024'
     element.title = '2024'
-    element.backdrop_path = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
-    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
+    element.img = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
+    element.type = 'movie'
+    element.hpu = '2024'
+//    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
         data.collection = true;
         data.total_pages = 1
         data.results = []
