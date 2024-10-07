@@ -42,10 +42,15 @@
         let q = 'discover/' + type + '?' + query.join('&')
 
 //      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
-      network.silent(q + '?page=' + params.page, function (data) {
-        data.total_pages = data.total_pages || 15;
-        oncomplite(data);
-      }, onerror);
+    let activity = {
+        url: q,
+        title: params.url,
+        component: 'category_full',
+        source: 'tmdb',
+        card_type: true,
+        page: 1
+    }
+        Lampa.Activity.push(activity)
     }
 
     function clear() {
