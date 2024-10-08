@@ -63,7 +63,7 @@
         window.years_ready = true
         var manifest = {
             type: 'video',
-            version: '0.1.1',
+            version: '0.2.1',
             name: 'Годы',
             description: '',
             component: 'years'
