@@ -1,20 +1,7 @@
 (function () {
     'use strict';
 
-    var network = new Lampa.Reguest();
-    var api_url = Lampa.Utils.protocol() + Lampa.Manifest.cub_domain + '/api/collections/';
-
     function main(params, oncomplite, onerror) {
-
-//      network.silent(api_url + 'list?page=' + params.page, function (data) {
-//        data.collection = true;
-//        data.total_pages = data.total_pages || 5;
-//        data.results.forEach(function (element) {
-//          element.poster_path = element.img;
-//          element.backdrop_path = element.img;
-//        });
-//
-//        data.results[0].title = '2024'
         let data = {}
         data.results = []
         data.collection = true;
@@ -25,45 +12,16 @@
             element.id = `${i}`
             element.original_title = `${i}`
             element.title = `${i}`
-            element.img = "/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"
+            element.img = ''
             element.type = 'movie'
             element.hpu = `${i}`
-//    element.poster_path = "/7TWq9G7zU0lLG7WpMK6f5EQwwf2.jpg"
             data.results.push(element)
         }
         oncomplite(data);
-//      }, onerror);
-    }
-
-    function full(params, oncomplite, onerror) {
-        let query = []
-        let type = 'movie'
-        query.push((type == 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + params.url)
-        query.push('sort_by=vote_average.desc&vote_count.gte=500')
-        let q = 'discover/' + type + '?' + query.join('&')
-
-//      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
-        let activity = {
-            url: q,
-            title: params.url,
-            component: 'category_full',
-            source: 'tmdb',
-            card_type: true,
-            page: 1
-        }
-        Lampa.Controller.toggle('content')
-//        Lampa.Activity.push(activity)
-        Lampa.Activity.replace(activity, true)
-    }
-
-    function clear() {
-        network.clear();
     }
 
     var Api = {
         main: main,
-        full: full,
-        clear: clear
     };
 
     function component$1(object) {
@@ -81,19 +39,12 @@
             card.onMenu = false;
 
             card.onEnter = function () {
-                // Lampa.Activity.push({
-                //     url: element.hpu,
-                //     title: element.title,
-                //     component: 'year',
-                //     page: 1
-                // });
                 let query = []
                 let type = 'movie'
                 query.push((type === 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + element.hpu)
                 query.push('sort_by=vote_average.desc&vote_count.gte=500')
                 let q = 'discover/' + type + '?' + query.join('&')
 
-//      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
                 let activity = {
                     url: q,
                     title: element.hpu,
@@ -109,25 +60,11 @@
         return comp;
     }
 
-    function component(object) {
-        var comp = new Lampa.InteractionCategory(object);
-
-        comp.create = function () {
-            Api.full(object, this.build.bind(this), this.empty.bind(this));
-        };
-
-        comp.nextPageReuest = function (object, resolve, reject) {
-            Api.full(object, resolve.bind(comp), reject.bind(comp));
-        };
-
-        return comp;
-    }
-
     function startPlugin() {
         window.years_ready = true
         var manifest = {
             type: 'video',
-            version: '0.0.2',
+            version: '0.1.0',
             name: 'Годы',
             description: '',
             component: 'years'
@@ -147,7 +84,6 @@
             $('.menu .menu__list').eq(0).append(button);
         }
 
-        Lampa.Component.add('year', component);
         Lampa.Component.add('years', component$1);
 
         if (window.appready) add(); else {
