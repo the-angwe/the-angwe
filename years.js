@@ -90,6 +90,14 @@
                 if (e.type == 'ready') add();
             });
         }
+
+        var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\"></div>")
+        Lampa.Listener.follow('full', function (e) {
+            if (e.type == 'complite') {
+                var render = e.object.activity.render();
+                $('.full-start-new__title', render).after(orig_title).text('xxxxxxxxxxxxxx');
+            }
+        });
     }
 
     if (!window.years_ready) startPlugin();
