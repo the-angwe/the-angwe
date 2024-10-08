@@ -34,7 +34,7 @@
         };
 
         comp.nextPageReuest = function (object, resolve, reject) {
-            Api.main(object, resolve.bind(comp), reject.bind(comp));
+            Api.main(object, resolve.bind(this), reject.bind(this));
         };
 
         comp.cardRender = function (object, element, card) {
