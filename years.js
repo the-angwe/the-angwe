@@ -8,6 +8,7 @@
         data.results = []
         data.collection = true;
         data.total_pages = 1000
+        data.total_results = 1000
         data.page = params.page
         for (let i = start; i > start - 20; i--) {
             let element = {}
