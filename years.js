@@ -91,11 +91,11 @@
             });
         }
 
-        var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\"></div>")
+        var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\">yyy</div>")
         Lampa.Listener.follow('full', function (e) {
             if (e.type == 'complite') {
                 var render = e.object.activity.render();
-                $('.full-start-new__title', render).append(orig_title)
+                $('.full-start-new__title', render).eq[0].after(orig_title)
                 $('.full--orig-title').text('xxxxxxxxxxxxxx');
             }
         });
