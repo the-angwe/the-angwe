@@ -89,14 +89,14 @@
                 // });
                 let query = []
                 let type = 'movie'
-                query.push((type === 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + params.url)
+                query.push((type === 'movie' ? 'primary_release_year' : 'first_air_date_year') + '=' + element.hpu)
                 query.push('sort_by=vote_average.desc&vote_count.gte=500')
                 let q = 'discover/' + type + '?' + query.join('&')
 
 //      network.silent(api_url + 'view/' + params.url + '?page=' + params.page, function (data) {
                 let activity = {
                     url: q,
-                    title: params.url,
+                    title: element.hpu,
                     component: 'category_full',
                     source: 'tmdb',
                     card_type: true,
