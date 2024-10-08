@@ -12,7 +12,6 @@
             element.id = `${i}`
             element.original_title = `${i}`
             element.title = `${i}`
-            element.img = ''
             element.type = 'movie'
             element.hpu = `${i}`
             data.results.push(element)
@@ -64,7 +63,7 @@
         window.years_ready = true
         var manifest = {
             type: 'video',
-            version: '0.1.0',
+            version: '0.1.1',
             name: 'Годы',
             description: '',
             component: 'years'
