@@ -7,7 +7,7 @@
         start -= 20 * (params.page - 1)
         data.results = []
         data.collection = true;
-        data.total_pages = params.page + 1
+        data.total_pages = 1000
         data.page = params.page
         data.total = 20
         for (let i = start; i > start - 20; i--) {
