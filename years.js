@@ -3,11 +3,14 @@
 
     function main(params, oncomplite, onerror) {
         let data = {}
+        let start = new Date().getFullYear();
+        start -= 20 * (params.page - 1)
         data.results = []
         data.collection = true;
-        data.total_pages = 1
-        data.total = 2024 - 2010
-        for (let i = 2024; i > 2010; i--) {
+        data.total_pages = params.page + 1
+        data.page = params.page
+        data.total = 20
+        for (let i = start; i > start - 20; i--) {
             let element = {}
             element.id = `${i}`
             element.original_title = `${i}`
