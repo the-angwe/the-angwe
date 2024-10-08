@@ -91,10 +91,10 @@
             });
         }
 
-        var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\">yyy</div>")
+        var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\"></div>")
         Lampa.Listener.follow('full', function (e) {
             if (e.type == 'complite') {
-                orig_title.text('qqqqqqqqqqqqq');
+                orig_title.text(e.object.card.original_title);
                 var render = e.object.activity.render();
                 $('.full-start-new__title', render).after(orig_title)
             }
