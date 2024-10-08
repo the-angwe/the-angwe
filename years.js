@@ -95,8 +95,8 @@
         Lampa.Listener.follow('full', function (e) {
             if (e.type == 'complite') {
                 var render = e.object.activity.render();
-                $('.full-start-new__title', render).eq[0].after(orig_title)
-                $('.full--orig-title').text('xxxxxxxxxxxxxx');
+                $('.full-start-new__title', render).eq[0].append(orig_title)
+                $('.full--orig-title').text('qqqqqqqqqqqqq');
             }
         });
     }
