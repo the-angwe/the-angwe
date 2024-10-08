@@ -94,9 +94,9 @@
         var orig_title = $("<div class=\"full-start-new__tagline full--tagline full--orig-title\">yyy</div>")
         Lampa.Listener.follow('full', function (e) {
             if (e.type == 'complite') {
+                orig_title.text('qqqqqqqqqqqqq');
                 var render = e.object.activity.render();
                 $('.full-start-new__title', render).after(orig_title)
-                // $('.full--orig-title').text('qqqqqqqqqqqqq');
             }
         });
     }
