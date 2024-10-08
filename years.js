@@ -9,7 +9,6 @@
         data.collection = true;
         data.total_pages = 1000
         data.page = params.page
-        data.total = 20
         for (let i = start; i > start - 20; i--) {
             let element = {}
             element.id = `${i}`
