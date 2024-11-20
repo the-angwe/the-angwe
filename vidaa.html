@@ -1,9 +1,7 @@
 <html>
 
 <head>
-</head>
 
-<body onload="hax()">
 <script>
     function hax() {
     // custom icon
@@ -23,10 +21,20 @@
 
     function installCallBack(res) {
     if (res == 0) {
-    // worked
+        getElementById("result").removeClass("hide")
     } else {
     // didn't work
     }
-    }</script>
+    }
+</script>
+<style type="text/css">
+    .hide {
+        display: none !important;
+    }
+</style>
+</head>
+<body>
+<button id="save" onclick="hax()">INSTALL</button>
+<div id="result" class="hide"><p>Success</p></div>
 </body>
 </html>
