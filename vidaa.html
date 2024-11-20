@@ -21,13 +21,13 @@
 
     function installCallBack(res) {
     if (res == 0) {
-        getElementById("result").removeClass("hide")
+        document.getElementById("result").removeClass("hide")
     } else {
     // didn't work
     }
     }
     function dump() {
-        alert(Hisense_installApp)
+        document.getElementById("text").textContent = Hisense_installApp
     }
 </script>
 <style type="text/css">
@@ -40,5 +40,6 @@
 <button id="save" onclick="hax()">INSTALL</button>
 <button id="dump" onclick="dump()">test</button>
 <div id="result" class="hide"><p>Success</p></div>
+<div><p id="text"></p></div>
 </body>
 </html>
