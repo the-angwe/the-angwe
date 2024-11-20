@@ -1,0 +1,32 @@
+<html>
+
+<head>
+</head>
+
+<body onload="hax()">
+<script>
+    function hax() {
+    // custom icon
+    var thumb = "http://vidaa.do.am/images/anb_lampa.png";
+    // has to be a unique name
+    var appName = "Lampa";
+
+    var thumbnail = thumb;
+    var iconSmall = thumb;
+    var iconBig = thumb;
+    var AppUrl = "http://lampa.mx/";
+    var storetype = "store";
+    var appId = appName;
+
+    Hisense_installApp(appId, appName, thumbnail, iconSmall, iconBig, AppUrl, storetype, installCallBack);
+    }
+
+    function installCallBack(res) {
+    if (res == 0) {
+    // worked
+    } else {
+    // didn't work
+    }
+    }</script>
+</body>
+</html>
